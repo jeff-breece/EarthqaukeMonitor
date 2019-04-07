@@ -1,4 +1,4 @@
-#Overview
+# Overview
 
-#Reference
+# Reference
 [Ubuntu Setup](https://gloveboxes.github.io/Ubuntu-for-Azure-Developers/docs/Ubuntu1804.html#Installingthelatest.NETCoreSDK)
