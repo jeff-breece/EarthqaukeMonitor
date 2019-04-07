@@ -7,6 +7,8 @@ namespace Earthquake.Function
 {
     public static class TimerTriggerCSharp
     {
+        // Start up: azurite -l /home/jeff/Azurite/
+
         [FunctionName("TimerTriggerCSharp")]
         public static void Run([TimerTrigger("0 */5 * * * *")]TimerInfo myTimer, ILogger log)
         {
