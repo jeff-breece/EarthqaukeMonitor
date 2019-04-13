@@ -22,9 +22,9 @@ public class EarthQuakeRepository {
         }
 
 // List<TheUser> friends = JsonConvert.DeserializeObject<List<TheUser>>(response);
-        public async Task<Properties> GetAsync(CancellationToken cancellationToken)
+        public async Task<Properties[]> GetAsync(CancellationToken cancellationToken)
         {
-            Properties quake = null;
+            List<Properties> earthQuakes = new List<Properties>();
             try {
                 cancellationToken.ThrowIfCancellationRequested();
                 HttpResponseMessage response = await client.GetAsync("", cancellationToken);
@@ -33,12 +33,15 @@ public class EarthQuakeRepository {
                 {
                     var stringResult = await response.Content.ReadAsStringAsync();
                     var rootObj = JsonConvert.DeserializeObject<RootObject>(stringResult);
-                    foreach (var row in rootObj.features.ToArray())
+                    
+                    foreach(var row in rootObj.features)
                     {
-                        quake = row.properties;
+                        var quake = row.properties;
+                        earthQuakes.Add(quake);
+                        Console.WriteLine($"Added quake [{quake.code}] to return object");
                     }
                 }
-                return quake;
+                return earthQuakes.ToArray();
             }
             catch (Exception ex)
             {

@@ -3,7 +3,7 @@ using System.Collections.Generic;
 
 namespace Earthquake.Function.Model
 {
-public class Metadata
+    public class Metadata
     {
         public long generated { get; set; }
         public string url { get; set; }
