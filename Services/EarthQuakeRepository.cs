@@ -21,7 +21,6 @@ public class EarthQuakeRepository {
                 new MediaTypeWithQualityHeaderValue("application/json"));
         }
 
-// List<TheUser> friends = JsonConvert.DeserializeObject<List<TheUser>>(response);
         public async Task<Properties[]> GetAsync(CancellationToken cancellationToken)
         {
             List<Properties> earthQuakes = new List<Properties>();
